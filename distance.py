@@ -74,13 +74,12 @@ def find_angle(h):
     l1,l2 = sensors_data
     gamma1 = np.arccos(h/l1)
     gamma2 = np.arccos(h/l2)
-    print(gamma, gamma1, gamma2)
     if gamma < (gamma1 + gamma2 + 0.05) and gamma > (gamma1 + gamma2 - 0.05):
         #gamma = gamma1 + gamma2
-        return abs(np.pi/2 - gamma1 - beta)*(180/np.pi)
+        return round(abs(np.pi/2 - gamma1 - beta)*(180/np.pi),4)
     else:
         #gamma = gamma2-gamma1
-        return (gamma - abs(np.pi/2 - gamma1 - beta)) *(180/np.pi)
+        return round((gamma - abs(np.pi/2 - gamma1 - beta)) *(180/np.pi), 4)
 
 
 background = draw_maze()
